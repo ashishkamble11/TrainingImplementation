@@ -1,36 +1,38 @@
-package com.company;
-
-class Water
-{
-    String one="H2";
-    String two="O";
-
-    String createWater()
-    {
-        return (one+two);
-    }
-}
-
-class Color extends Water
-{
-    private String color;
-
-    Color(String color)
-    {
-        this.color=color;
-    }
-
-    String createColor()
-    {
-        return (super.createWater()+"+"+color+"="+color);
-    }
-}
-
 public class InheritanceDemo
 {
     public static void main(String[] args)
     {
-        Color c=new Color("White");
-        System.out.println(c.createColor());
+        ColorPrinter cp=new ColorPrinter();
+        cp.colorPrint();
+        BlackAndWhitePrinter bwp=new BlackAndWhitePrinter();
+        bwp.blackAndWhitePrint();
+        Printer p=new Printer();
+        p.print();
+    }
+}
+
+class Printer
+{
+    void print()
+    {
+        System.out.print("Printing ");
+    }
+}
+
+class ColorPrinter extends Printer
+{
+    void colorPrint()
+    {
+        super.print();
+        System.out.println("Color Job.");
+    }
+}
+
+class BlackAndWhitePrinter extends Printer
+{
+    void blackAndWhitePrint()
+    {
+        super.print();
+        System.out.println("Black and White Job.");
     }
 }
